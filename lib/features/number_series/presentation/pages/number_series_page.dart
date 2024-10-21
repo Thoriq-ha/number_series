@@ -95,9 +95,7 @@ class NumberSeriesPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 24),
-              const Row(
-                children: [Text("Result")],
-              ),
+              const Row(children: [Text("Result")]),
               const SizedBox(height: 12),
               BlocBuilder<NumberSeriesBloc, NumberSeriesState>(
                 bloc: sl<NumberSeriesBloc>(),
@@ -112,7 +110,14 @@ class NumberSeriesPage extends StatelessWidget {
                             (number) => Card(
                               color: Colors.blue,
                               child: ListTile(
-                                title: Text(number.toString()),
+                                title: Text(
+                                  number.toString(),
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ),
                           )
@@ -120,12 +125,13 @@ class NumberSeriesPage extends StatelessWidget {
                       ),
                     );
                   } else {
-                    return Container(
-                      child: const Text("No Result"),
+                    return const Center(
+                      child: Text("No Result"),
                     );
                   }
                 },
               ),
+              const SizedBox(height: 24),
             ],
           ),
         ),
