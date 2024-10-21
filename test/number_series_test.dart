@@ -1,44 +1,36 @@
 // ignore_for_file: avoid_print
 
 void main() {
-  test4();
-}
+  int number = 9;
+  print("Nilai N : $number");
 
-test4() {
-  int number = 19;
-  for (int i = 1; i <= number; i++) {
-    if (i % 5 == 0) {
-      print("LIMA");
-    } else if (i % 7 == 0) {
-      print("TUJUH");
+  //Soal 1
+  List<String> numberSeries1 =
+      List.generate(number, (index) => (index + 1).toString());
+  print("Soal 1 : $numberSeries1");
+
+  //Soal 2
+  List<String> numberSeries2 = List.generate(
+      (number * 2) - 1,
+      (index) => ((index >= number) ? ((number * 2 - index) - 1) : (index + 1))
+          .toString());
+  print("Soal 2 : $numberSeries2");
+
+  //Soal 3
+  List<String> numberSeries3 =
+      List.generate(number, (index) => (10 + (11 * index)).toString());
+  print("Soal 3 : $numberSeries3");
+
+  //Soal 4
+  List<String> numberSeries4 = List.generate(number, (index) {
+    var n = index + 1;
+    if (n % 5 == 0) {
+      return "LIMA";
+    } else if (n % 7 == 0) {
+      return "TUJUH";
     } else {
-      print(i);
+      return n.toString();
     }
-  }
-}
-
-test3() {
-  int number = 5;
-  int startNum = 10;
-  int step = 11;
-  for (int i = 0; i < number; i++) {
-    print(startNum + (step * i));
-  }
-}
-
-test2() {
-  int number = 5;
-  List<int> numberSeries = [];
-  for (int i = 0; i < number * 2; i++) {
-    if (i == number) {
-      continue;
-    }
-    if (i >= number) {
-      numberSeries.add(number * 2 - i);
-    } else {
-      numberSeries.add(i + 1);
-    }
-  }
-
-  print(numberSeries);
+  });
+  print("Soal 4 : $numberSeries4");
 }

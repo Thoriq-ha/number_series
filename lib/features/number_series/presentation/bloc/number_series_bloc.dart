@@ -25,17 +25,12 @@ class NumberSeriesBloc extends Bloc<NumberSeriesEvent, NumberSeriesState> {
         emit(const NumberSeriesError("Please Input Valid Number"));
         return;
       }
-      List<String> numberSeries = [];
-      for (int i = 0; i < number * 2; i++) {
-        if (i == number) {
-          continue;
-        }
-        if (i >= number) {
-          numberSeries.add((number * 2 - i).toString());
-        } else {
-          numberSeries.add((i + 1).toString());
-        }
-      }
+
+      List<String> numberSeries = List.generate(
+          (number * 2) - 1,
+          (index) =>
+              ((index >= number) ? ((number * 2 - index) - 1) : (index + 1))
+                  .toString());
 
       emit(NumberSeriesLoaded(numberSeries));
     });
@@ -46,12 +41,8 @@ class NumberSeriesBloc extends Bloc<NumberSeriesEvent, NumberSeriesState> {
         emit(const NumberSeriesError("Please Input Valid Number"));
         return;
       }
-      List<String> numberSeries = [];
-      int startNum = 10;
-      int step = 11;
-      for (int i = 0; i < number; i++) {
-        numberSeries.add((startNum + (step * i)).toString());
-      }
+      List<String> numberSeries =
+          List.generate(number, (index) => (10 + (11 * index)).toString());
 
       emit(NumberSeriesLoaded(numberSeries));
     });
@@ -62,17 +53,16 @@ class NumberSeriesBloc extends Bloc<NumberSeriesEvent, NumberSeriesState> {
         emit(const NumberSeriesError("Please Input Valid Number"));
         return;
       }
-      List<String> numberSeries = [];
-
-      for (int i = 1; i <= number; i++) {
-        if (i % 5 == 0) {
-          numberSeries.add("LIMA");
-        } else if (i % 7 == 0) {
-          numberSeries.add("TUJUH");
+      List<String> numberSeries = List.generate(number, (index) {
+        var n = index + 1;
+        if (n % 5 == 0) {
+          return "LIMA";
+        } else if (n % 7 == 0) {
+          return "TUJUH";
         } else {
-          numberSeries.add(i.toString());
+          return n.toString();
         }
-      }
+      });
       emit(NumberSeriesLoaded(numberSeries));
     });
   }
