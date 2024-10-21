@@ -47,6 +47,8 @@ class NumberSeriesPage extends StatelessWidget {
                         title: "1",
                         nNumberController: nNumberController,
                         onPressed: () {
+                          FocusScope.of(context).unfocus();
+                          FocusScope.of(context).unfocus();
                           sl<NumberSeriesBloc>().add(
                               NumberSeriesEventSubmitType1(
                                   nNumberController.text));
@@ -57,6 +59,7 @@ class NumberSeriesPage extends StatelessWidget {
                         title: "2",
                         nNumberController: nNumberController,
                         onPressed: () {
+                          FocusScope.of(context).unfocus();
                           sl<NumberSeriesBloc>().add(
                               NumberSeriesEventSubmitType2(
                                   nNumberController.text));
@@ -70,6 +73,7 @@ class NumberSeriesPage extends StatelessWidget {
                         title: "3",
                         nNumberController: nNumberController,
                         onPressed: () {
+                          FocusScope.of(context).unfocus();
                           sl<NumberSeriesBloc>().add(
                               NumberSeriesEventSubmitType3(
                                   nNumberController.text));
@@ -80,6 +84,7 @@ class NumberSeriesPage extends StatelessWidget {
                         title: "4",
                         nNumberController: nNumberController,
                         onPressed: () {
+                          FocusScope.of(context).unfocus();
                           sl<NumberSeriesBloc>().add(
                               NumberSeriesEventSubmitType4(
                                   nNumberController.text));
@@ -90,6 +95,10 @@ class NumberSeriesPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 24),
+              const Row(
+                children: [Text("Result")],
+              ),
+              const SizedBox(height: 12),
               BlocBuilder<NumberSeriesBloc, NumberSeriesState>(
                 bloc: sl<NumberSeriesBloc>(),
                 builder: (context, state) {
@@ -111,7 +120,9 @@ class NumberSeriesPage extends StatelessWidget {
                       ),
                     );
                   } else {
-                    return Container();
+                    return Container(
+                      child: const Text("No Result"),
+                    );
                   }
                 },
               ),

@@ -11,7 +11,7 @@ class NumberSeriesBloc extends Bloc<NumberSeriesEvent, NumberSeriesState> {
       emit(NumberSeriesLoading());
       int? number = int.tryParse(event.numberString);
       if (number == null) {
-        emit(const NumberSeriesError("Invalid number"));
+        emit(const NumberSeriesError("Please Input Valid Number"));
         return;
       }
       List<String> numberSeries =
@@ -22,7 +22,7 @@ class NumberSeriesBloc extends Bloc<NumberSeriesEvent, NumberSeriesState> {
       emit(NumberSeriesLoading());
       int? number = int.tryParse(event.numberString);
       if (number == null) {
-        emit(const NumberSeriesError("Invalid number"));
+        emit(const NumberSeriesError("Please Input Valid Number"));
         return;
       }
       List<String> numberSeries = [];
@@ -43,7 +43,7 @@ class NumberSeriesBloc extends Bloc<NumberSeriesEvent, NumberSeriesState> {
       emit(NumberSeriesLoading());
       int? number = int.tryParse(event.numberString);
       if (number == null) {
-        emit(const NumberSeriesError("Invalid number"));
+        emit(const NumberSeriesError("Please Input Valid Number"));
         return;
       }
       List<String> numberSeries = [];
@@ -59,7 +59,7 @@ class NumberSeriesBloc extends Bloc<NumberSeriesEvent, NumberSeriesState> {
       emit(NumberSeriesLoading());
       int? number = int.tryParse(event.numberString);
       if (number == null) {
-        emit(const NumberSeriesError("Invalid number"));
+        emit(const NumberSeriesError("Please Input Valid Number"));
         return;
       }
       List<String> numberSeries = [];
